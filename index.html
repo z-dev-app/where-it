@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhereIt - Keep Track of Your Belongings</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #5856D6;
+            --text-color: #2C3E50;
+            --background-color: #FFFFFF;
+            --accent-color: #E8F3FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background-color: #FAFAFA;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: left;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            opacity: 0.9;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 10px;
+            width: 180px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .app-store-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom right, #FAFAFA 49.9%, white 50%);
+            z-index: 1;
+        }
+
+        .features-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            padding: 0 1rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: white;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                padding: 4rem 2rem;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                padding-bottom: 3rem;
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .app-store-button {
+                align-self: center;
+            }
+
+            .hero-image {
+                padding-top: 2rem;
+            }
+
+            .hero-image img {
+                transform: none;
+                max-width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WhereIt</h1>
+            <p>Simplify your life by keeping track of what matters most. The smart way to organize and remember your belongings.</p>
+            <a href="#" class="app-store-button">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=180x60" alt="Download on the App Store">
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="where-it-mock.png" alt="MiniFinder App Interface">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007AFF'><path d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z'/></svg>" alt="Easy Organization">
+                <h3>Smart Organization</h3>
+                <p>Effortlessly categorize and organize your items with intuitive tagging and sorting.</p>
+            </div>
+            <div class="feature-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007AFF'><path d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z'/></svg>" alt="Smart Reminders">
+                <h3>Timely Reminders</h3>
+                <p>Never forget where you placed important items with smart, location-based reminders.</p>
+            </div>
+            <div class="feature-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007AFF'><path d='M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.9 13.98l2.1 2.53 3.1-3.99 4.9 6.48H5l3.9-5.02z'/></svg>" alt="Visual Memory">
+                <h3>Visual Memory</h3>
+                <p>Capture and store photos of your items for quick and easy identification.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 WhereIt. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
